@@ -1,0 +1,48 @@
+import { createBrowserRouter } from "react-router-dom";
+import Root from "../Root/Root";
+import Home from "../pages/Home/Home";
+import Login from "../pages/Login/Login";
+import Ragester from "../pages/Ragester/Ragester";
+import AddBlog from "../pages/Add-Blog/AddBlog";
+import AllBlogs from "../pages/All-Blogs/AllBlogs";
+import FeaturedBlogs from "../pages/Featured-Blogs/FeaturedBlogs";
+import Wishlist from "../pages/Wishlist/Wishlist";
+
+const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root />,
+    //   errorElement: <ErrorPage />,
+      children: [
+        {
+          path: "/",
+          element: <Home/>,
+        },
+        {
+            path:"login",
+            element:<Login></Login>
+        },
+        {
+            path:"ragester",
+            element:<Ragester></Ragester>
+        },
+        {
+            path:"addblog",
+            element:<AddBlog></AddBlog>
+        },
+        {
+            path:"allblogs",
+            element:<AllBlogs></AllBlogs>
+        },
+        {
+            path:"featuredblogs",
+            element:<FeaturedBlogs></FeaturedBlogs>
+        },
+        {
+            path:"wishlist",
+            element:<Wishlist></Wishlist>
+        }
+      ],
+    },
+  ]);
+  export default router
