@@ -28,11 +28,12 @@ const router = createBrowserRouter([
         },
         {
             path:"addblog",
-            element:<AddBlog></AddBlog>
+            element:<AddBlog></AddBlog>,
         },
         {
             path:"allblogs",
             element:<AllBlogs></AllBlogs>
+            
         },
         {
             path:"featuredblogs",
@@ -40,7 +41,8 @@ const router = createBrowserRouter([
         },
         {
             path:"wishlist",
-            element:<Wishlist></Wishlist>
+            element:<Wishlist></Wishlist>,
+           
         }
       ],
     },
