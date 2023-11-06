@@ -16,14 +16,14 @@ const AllBlogs = () => {
 
     return (
         <div>
-            <select
+            {/* <select
                 className="select select-bordered w-full max-w-xs"
                 onChange={(e) => e.target.value}
             >
                 <option disabled selected>Who shot first?</option>
                 <option>Han Solo</option>
                 <option>Greedo</option>
-            </select>
+            </select> */}
             <div  className='grid grid-cols-3 gap-5 my-5'>
             {
                 blogs?.map(blog=><Blog key={blog._id} blog={blog}></Blog>)

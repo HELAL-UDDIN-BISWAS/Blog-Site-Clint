@@ -40,7 +40,10 @@ const Navber = () => {
         {
             user ? <><span>{user.email}</span>
           <button onClick={logout} className="btn">SignOut</button></>:
+          <>
+          <Link to="/ragester"><button>Ragester</button></Link>
           <Link to="/login"><button>Login</button></Link>
+          </>
 
           }
         

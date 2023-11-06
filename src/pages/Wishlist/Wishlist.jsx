@@ -1,33 +1,26 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Proveider/Proveider';
+import WishlistCompo from './WishlistCompo';
 
 const Wishlist = () => {
+    const {user}=useContext(AuthContext)
+    const [blogwishlist,setblogwishlist]=useState()
+    const url = `http://localhost:5000/wishlist?email=${user?.email}`;
+    useEffect(() => {
+        axios.get(url, { withCredentials: true })
+            .then(res => {
+                setblogwishlist(res.data);
+                console.log(res.data)
+            })
+            .catch(error => console.error(error))
+    }, [url]);
 
-    const blog = useLoaderData();
-    const { image, category, currentTime, short_description, title, _id } = blog || {}
-    
-    const addwishlist = () => {
-        const url = `http://localhost:5000/wishlist`;
-       
-            axios.post(url, blog)
-                .then(res => console.log(res.data))
-        
-
-    }
-
-    return (
-        <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src={image} alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">{category}</h2>
-                    <p>{short_description}</p><p>{currentTime}</p>
-                    <div className="card-actions justify-end">
-                        <button onClick={addwishlist} className="btn btn-primary">Add Wishlist</button>
-                    </div>
-                </div>
-            </div>
+    return ( 
+        <div className='grid grid-cols-2 gap-4'>
+            {
+                blogwishlist?.map(wishlist=><WishlistCompo key={wishlist._id} wishlist={wishlist}></WishlistCompo>)
+            }
         </div>
     );
 };

@@ -1,14 +1,18 @@
 import axios from 'axios';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import { AuthContext } from '../../Proveider/Proveider';
 const Blog = ({ blog }) => {
+    const {user}=useContext(AuthContext)
+    const {email}=user || {}
+    // console.log(email)
     const { image, category, currentTime, short_description, title, _id } = blog || {}
-    console.log(blog)
-
+    // console.log(blog)
+     const wishlistData={image, category, currentTime, short_description, title, email}
     const addwishlist = () => {
         const url = `http://localhost:5000/wishlist`;
        
-            axios.post(url, blog)
+            axios.post(url, wishlistData)
                 .then(res => console.log(res.data))
         
 
