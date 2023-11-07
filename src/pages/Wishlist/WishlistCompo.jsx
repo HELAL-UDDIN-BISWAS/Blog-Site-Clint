@@ -2,6 +2,9 @@ import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from 'react-loading-skeleton';
+
 
 const WishlistCompo = ({ wishlist }) => {
     const { image, category, currentTime, short_description, title, _id } = wishlist || {}
@@ -36,7 +39,7 @@ const WishlistCompo = ({ wishlist }) => {
     console.log(wishlist)
     return (
         <div className="card card-side bg-base-100 shadow-xl">
-            <figure><img className='w-80' src={image} alt="Movie" /></figure>
+            <figure><img className='w-80' src={image } alt="Movie" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{category}</h2>
                 <p>{short_description}</p>
