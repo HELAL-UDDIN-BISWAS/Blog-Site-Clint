@@ -7,7 +7,7 @@ const Newsletter = () => {
         Swal.fire({
             icon: 'success',
             title: 'Success',
-            text: 'Something went wrong!',
+            text: 'Subscrib Added Success Full',
             footer: '<a href="">Why do I have this issue?</a>'
         })
         return
