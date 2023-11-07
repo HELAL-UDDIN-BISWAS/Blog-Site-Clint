@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddBlog = () => {
+        const blogCategory = [
+            'Food',
+            'Technology',
+            'Health',
+            'Travel'
+        ]
+        const [category, setcategory] = useState('')
     const addblog = (e) => {
         e.preventDefault();
         const form = e.target
-        const category = form.category.value
         const title = form.title.value
         const short_description = form.short_description.value
         const long_description = form.long_description.value
         const image = form.image.value
         const Blog = { category, title, short_description, long_description, image }
-
+console.log(category)
         fetch('http://localhost:5000/blog', {
             method: "POST",
             headers: {
@@ -19,8 +26,24 @@ const AddBlog = () => {
             },
             body: JSON.stringify(Blog)
         })
-            .then(res => res.json())
-            .then(data => console.log(data))
+        .then(res => {
+            Swal.fire({
+                icon: "success",
+                title: "Wishlist...",
+                text: "ADD Blog Success",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+            console.log(res.data)
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+            console.error(error)
+        })
     }
 
     return (
@@ -31,12 +54,14 @@ const AddBlog = () => {
                 <label className="label">
                     <span className="label-text">category</span>
                 </label>
-                <select className="select select-bordered w-full max-w-xs">
-                    <option disabled selected>Select category</option>
-                    <option>Food</option>
-                    <option>Technology</option>
-                    <option>Health</option>
-                    <option>Travel</option>
+                <select
+                    className="select select-bordered w-full max-w-xs"
+                    onChange={(e) => setcategory(e.target.value)}
+                >
+                    <option disabled selected>Chose One</option>
+                    {
+                        blogCategory.map(blog => <option key={blog}>{blog}</option>)
+                    }
                 </select>
             </div>
             <div className="">

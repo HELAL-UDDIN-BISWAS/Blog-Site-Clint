@@ -3,11 +3,13 @@ import Footer from './Components/Footer/Footer';
 import Newsletter from './Components/NewsLetter/Newsletter';
 import SectionOne from './Components/Section/SectionOne';
 import Banner from './Components/Banner/Banner';
+import Blogarea from './Components/Blogarea/Blogarea';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Blogarea></Blogarea>
             <Newsletter></Newsletter>
             <div>
                 <div className='text-center my-5'>

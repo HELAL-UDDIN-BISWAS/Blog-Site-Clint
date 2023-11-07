@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Proveider/Proveider';
 import Swal from 'sweetalert2';
-const Blog = ({ blog }) => {
-    const { user } = useContext(AuthContext)
+import { AuthContext } from '../../../../Proveider/Proveider';
+
+const Blogs = ({blog}) => {
+    const {user}=useContext(AuthContext)
     const { email } = user || {}
-    // console.log(email)
     const { image, category, currentTime, short_description, title, _id, long_description
     } = blog || {}
     // console.log(blog)
@@ -16,7 +16,7 @@ const Blog = ({ blog }) => {
     }
     const addwishlist = () => {
         const url = `http://localhost:5000/wishlist`;
-        axios.post(url, wishlistData)
+        axios.post(url,  wishlistData )
             .then(res => {
                 Swal.fire({
                     icon: "success",
@@ -35,29 +35,25 @@ const Blog = ({ blog }) => {
                 });
                 console.error(error)
             })
-
-
     }
-
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
-            <figure><img className='h-64' src={image} alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">
-                    {category}
-                    <div className="badge badge-secondary">NEW</div>
-                </h2>
-                <p>{title}</p>
-                <div className="card-actions justify-end">
-                    <Link to={`/blogdetails/${_id}`}>
-                        <div className="btn btn-outline btn-primary">details</div>
-                    </Link>
-                    <button className="btn btn-outline btn-secondary" onClick={addwishlist}>Add Wishlist</button>
-                </div>
+        <figure><img className='h-64' src={blog.image} alt="Shoes" /></figure>
+        <div className="card-body">
+            <h2 className="card-title">
+                {blog.category}
+                <div className="badge badge-secondary">NEW</div>
+            </h2>
+            <p>{blog.title}</p>
+            <div className="card-actions justify-end">
+                <Link to={`/blogdetails/${blog._id}`}>
+                    <div className="btn btn-outline btn-primary">details</div>
+                </Link>
+                <button className="btn btn-outline btn-secondary" onClick={addwishlist}>Add Wishlist</button>
             </div>
         </div>
-
+    </div>
     );
 };
 
-export default Blog;
+export default Blogs;

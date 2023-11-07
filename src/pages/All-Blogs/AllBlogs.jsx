@@ -2,34 +2,58 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Blog from './Blog';
 import { useLoaderData } from 'react-router-dom';
+import {
+    useQuery,
+} from '@tanstack/react-query'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const AllBlogs = () => {
-    const [blogs, setblogs] = useState([])
-    const url = `http://localhost:5000/blog`;
-    useEffect(() => {
-        axios.get(url)
-            .then(res => {
-                setblogs(res.data);
-            })
-    }, []);
+    const blogCategory = [
+        'Food',
+        'Technology',
+        'Health',
+        'Travel'
+    ]
+    const [category, setcategory] = useState('')
+    const { data, isLoading } = useQuery({
+        queryKey: ['category', category],
+        queryFn: async () => {
+            const data = await fetch(`http://localhost:5000/blog?category=${category}`, { withCredentials: true })
+            return await data.json()
+        }
+    })
+    if (isLoading == true) {
+        return <SkeletonTheme baseColor="#c4c8cf" highlightColor="#fff">
+            <p>{
+                <Skeleton count={3} />
+            }
+            </p>
+        </SkeletonTheme>
+    }
 
-
+    console.log(category)
     return (
         <div>
-            {/* <select
-                className="select select-bordered w-full max-w-xs"
-                onChange={(e) => e.target.value}
-            >
-                <option disabled selected>Who shot first?</option>
-                <option>Han Solo</option>
-                <option>Greedo</option>
-            </select> */}
-            <div  className='grid grid-cols-3 gap-5 my-5'>
-            {
-                blogs?.map(blog=><Blog key={blog._id} blog={blog}></Blog>)
-            }
+            <div>
+                <select
+                    className="select select-bordered w-full max-w-xs"
+                    onChange={(e) => setcategory(e.target.value)}
+                >
+                    <option disabled selected>Chose One</option>
+                    {
+                        blogCategory.map(blog => <option key={blog}>{blog}</option>)
+                    }
+                </select>
             </div>
-            
+
+
+            <div className='grid grid-cols-3 gap-5 my-5'>
+                {
+                    data?.map(blog => <Blog key={blog._id} blog={blog}></Blog>)
+                }
+            </div>
+
         </div>
     );
 };
