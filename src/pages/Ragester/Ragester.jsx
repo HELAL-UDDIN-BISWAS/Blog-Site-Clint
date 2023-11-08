@@ -32,7 +32,7 @@ const Ragester = () => {
               <input type="password" placeholder="password" name='password' className="input input-bordered" required />
             </div>
             <div className="form-control mt-6">
-              <button type='submit' className="btn btn-primary">Login</button>
+              <button type='submit' className="btn btn-primary">Ragester</button>
             </div>
           </form>
         </div>
