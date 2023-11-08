@@ -17,7 +17,7 @@ const Login = () => {
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Something went wrong!',
+          text: 'Login in Success full',
           footer: '<a href="">Why do I have this issue?</a>'
         })
         axios.post('https://assignment-11-server-mu-plum.vercel.app/jwt', user, {

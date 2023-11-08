@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Proveider/Proveider';
+import Swal from 'sweetalert2';
 
 const Ragester = () => {
     const {ragester}=useContext(AuthContext)
@@ -10,8 +11,24 @@ const Ragester = () => {
         const password=form.password.value
         console.log(email,password)
         ragester(email,password)
-        .then(res=>console.log(res))
-        .catch(error=>console.error(error))
+        .then(res=> 
+          console.log(res),
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Login in Success full',
+            footer: '<a href="">Why do I have this issue?</a>'
+          }))
+          .catch(error => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+              footer: '<a href="">Why do I have this issue?</a>'
+    
+            })
+            console.error(error)
+          })
       }
     
         return (
