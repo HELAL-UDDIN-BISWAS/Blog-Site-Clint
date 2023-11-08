@@ -20,7 +20,7 @@ const Login = () => {
           text: 'Something went wrong!',
           footer: '<a href="">Why do I have this issue?</a>'
         })
-        axios.post('http://localhost:5000/jwt', user, {
+        axios.post('https://assignment-11-server-mu-plum.vercel.app/jwt', user, {
           withCredentials: true
         })
         console.log(res)

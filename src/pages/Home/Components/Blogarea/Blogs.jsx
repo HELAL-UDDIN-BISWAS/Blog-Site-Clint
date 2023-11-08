@@ -15,7 +15,7 @@ const Blogs = ({blog}) => {
         email
     }
     const addwishlist = () => {
-        const url = `http://localhost:5000/wishlist`;
+        const url = `https://assignment-11-server-mu-plum.vercel.app/wishlist`;
         axios.post(url,  wishlistData )
             .then(res => {
                 Swal.fire({

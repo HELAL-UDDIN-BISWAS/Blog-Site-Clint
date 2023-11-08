@@ -22,7 +22,7 @@ const Blogdetails = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['command'],
     queryFn: async () => {
-      const data = await fetch(`http://localhost:5000/command`, { withCredentials: true })
+      const data = await fetch(`https://assignment-11-server-mu-plum.vercel.app/command`, { withCredentials: true })
       return await data.json()
     }
   })
@@ -38,7 +38,7 @@ const Blogdetails = () => {
     e.preventDefault();
     const commentData = { text, email, _id };
     console.log(commentData)
-    axios.post("http://localhost:5000/allComment", commentData)
+    axios.post("https://assignment-11-server-mu-plum.vercel.app/allComment", commentData)
       .then(res => {
         console.log(res)
         return Swal.fire({

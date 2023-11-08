@@ -19,7 +19,7 @@ const AddBlog = () => {
         const image = form.image.value
         const Blog = { category, title, short_description, long_description, image }
 console.log(category)
-        fetch('http://localhost:5000/blog', {
+        fetch('https://assignment-11-server-mu-plum.vercel.app/blog', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

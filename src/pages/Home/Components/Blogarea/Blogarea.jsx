@@ -11,7 +11,7 @@ const Blogarea = () => {
     const { data, isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const data = await fetch(`http://localhost:5000/blogForHome`, { withCredentials: true })
+            const data = await fetch(`https://assignment-11-server-mu-plum.vercel.app/blogForHome`, { withCredentials: true })
             return await data.json()
         }
     })

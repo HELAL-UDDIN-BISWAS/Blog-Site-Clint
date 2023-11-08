@@ -11,53 +11,53 @@ import Details from "../pages/Wishlist/Details";
 import Blogdetails from "../pages/All-Blogs/Blogdetails";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root />,
+  {
+    path: "/",
+    element: <Root />,
     //   errorElement: <ErrorPage />,
-      children: [
-        {
-          path: "/",
-          element: <Home/>,
-        },
-        {
-            path:"login",
-            element:<Login></Login>
-        },
-        {
-            path:"ragester",
-            element:<Ragester></Ragester>
-        },
-        {
-            path:"addblog",
-            element:<AddBlog></AddBlog>,
-        },
-        {
-            path:"allblogs",
-            element:<AllBlogs></AllBlogs>
-            
-        },
-        {
-            path:"featuredblogs",
-            element:<FeaturedBlogs></FeaturedBlogs>
-        },
-        {
-            path:"wishlist",
-            element:<Wishlist></Wishlist>,
-        },
-         {
-          path:"/details/:id",
-          element:<Details></Details>,
-          loader:({params})=>fetch(`http://localhost:5000/wishlist/${params.id}`)
-        },
-        {
-          path:"blogdetails/:id",
-          element:<Blogdetails></Blogdetails>,
-          loader:({params})=>fetch(`http://localhost:5000/blog/${params.id}`)
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "login",
+        element: <Login></Login>
+      },
+      {
+        path: "ragester",
+        element: <Ragester></Ragester>
+      },
+      {
+        path: "addblog",
+        element: <AddBlog></AddBlog>,
+      },
+      {
+        path: "allblogs",
+        element: <AllBlogs></AllBlogs>
 
-        }
-      
-      ],
-    },
-  ]);
-  export default router
+      },
+      {
+        path: "featuredblogs",
+        element: <FeaturedBlogs></FeaturedBlogs>
+      },
+      {
+        path: "wishlist",
+        element: <Wishlist></Wishlist>,
+      },
+      {
+        path: "/details/:id",
+        element: <Details></Details>,
+        loader: ({ params }) => fetch(`https://assignment-11-server-mu-plum.vercel.app/wishlist/${params.id}`)
+      },
+      {
+        path: "blogdetails/:id",
+        element: <Blogdetails></Blogdetails>,
+        loader: ({ params }) => fetch(`https://assignment-11-server-mu-plum.vercel.app/blog/${params.id}`)
+
+      }
+
+    ],
+  },
+]);
+export default router

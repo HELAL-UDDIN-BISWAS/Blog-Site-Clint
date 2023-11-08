@@ -19,7 +19,7 @@ const AllBlogs = () => {
     const { data, isLoading } = useQuery({
         queryKey: ['category', category],
         queryFn: async () => {
-            const data = await fetch(`http://localhost:5000/blog?category=${category}`, { withCredentials: true })
+            const data = await fetch(`https://assignment-11-server-mu-plum.vercel.app/blog?category=${category}`, { withCredentials: true })
             return await data.json()
         }
     })

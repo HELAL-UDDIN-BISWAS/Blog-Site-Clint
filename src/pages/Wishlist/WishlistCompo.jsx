@@ -22,7 +22,7 @@ const WishlistCompo = ({ wishlist }) => {
      
                 .then((result) => {
                     if (result.isConfirmed) {
-                        axios.delete(`http://localhost:5000/wishlist/${_id}`)
+                        axios.delete(`https://assignment-11-server-mu-plum.vercel.app/wishlist/${_id}`)
                         .then(res=>{
                            console.log(res.data)
                         })
