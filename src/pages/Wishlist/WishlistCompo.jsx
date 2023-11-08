@@ -46,7 +46,7 @@ const WishlistCompo = ({ wishlist }) => {
                 <div className="card-actions justify-end">
                     <button onClick={handledelete} className="btn btn-primary">Delete</button>
                     <Link to={`/details/${_id}`}>
-                        <button className="btn btn-primary">Watch</button>
+                        <button className="btn btn-primary">details</button>
                     </Link>
                 </div>
             </div>
