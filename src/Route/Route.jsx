@@ -9,12 +9,13 @@ import FeaturedBlogs from "../pages/Featured-Blogs/FeaturedBlogs";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import Details from "../pages/Wishlist/Details";
 import Blogdetails from "../pages/All-Blogs/Blogdetails";
+import Errorpage from "../pages/Errorpage/Errorpage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    //   errorElement: <ErrorPage />,
+      errorElement: <Errorpage />,
     children: [
       {
         path: "/",
