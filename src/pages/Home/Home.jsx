@@ -19,7 +19,7 @@ const Home = () => {
                 </div>
                 <SectionOne></SectionOne>
                 <div className='text-center my-5'>
-                    <h2 className='text-4xl text-black '>Travel</h2>
+                    <h2 className='text-4xl text-black '>Food</h2>
                     <p>Adventures in the Amazon Rainforest</p>
                 </div>
                 <Section></Section>

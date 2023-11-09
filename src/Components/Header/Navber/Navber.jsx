@@ -27,7 +27,11 @@ const Navber = () => {
               }
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <div className='flex items-center'>
+          <img className='h-7 w-7' src={'https://i.ibb.co/qW6vwVv/color-spectrum-1192509-1280.png'} alt="" />
+          <h3 className='ml-2 text-2xl text-orange-500'><span className='text-2xl text-lime-700'>B</span>LOG</h3>
+          </div>
+        
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
