@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         element: <FeaturedBlogs></FeaturedBlogs>
       },
       {
-        path: "wishlist",
+        path: "/wishlist",
         element: <Wishlist></Wishlist>,
       },
       {
