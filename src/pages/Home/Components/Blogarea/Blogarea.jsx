@@ -24,6 +24,7 @@ const Blogarea = () => {
         </SkeletonTheme>
     }
     console.log(data)
+    // const filterdata= data.filter()
     return (
         <div className=' mx-auto text-center items-center justify-center grid lg:grid-cols-3 gap-4'>
             {

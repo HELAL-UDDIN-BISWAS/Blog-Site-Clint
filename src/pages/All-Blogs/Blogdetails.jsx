@@ -36,7 +36,7 @@ const Blogdetails = () => {
   }
   const handlesumit = (e) => {
     e.preventDefault();
-    const commentData = { text, email, _id };
+    const commentData = { text, email};
     console.log(commentData)
     axios.post("https://assignment-11-server-mu-plum.vercel.app/allComment", commentData)
       .then(res => {

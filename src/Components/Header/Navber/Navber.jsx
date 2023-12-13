@@ -10,6 +10,7 @@ const Navber = () => {
         <li><Link to="/allblogs">All Blogs</Link></li>
         <li><Link to="/featuredblogs">Featured Blogs</Link></li>
         <li><Link to="/wishlist">Wishlist</Link></li>
+        <li><Link to="/contactus">ContactUs</Link></li>
     </>
     // const logout=()=>{
       

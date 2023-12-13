@@ -10,6 +10,7 @@ import Wishlist from "../pages/Wishlist/Wishlist";
 import Details from "../pages/Wishlist/Details";
 import Blogdetails from "../pages/All-Blogs/Blogdetails";
 import Errorpage from "../pages/Errorpage/Errorpage";
+import ContactUs from "../pages/ContactUS/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -55,9 +56,11 @@ const router = createBrowserRouter([
         path: "blogdetails/:id",
         element: <Blogdetails></Blogdetails>,
         loader: ({ params }) => fetch(`https://assignment-11-server-mu-plum.vercel.app/blog/${params.id}`)
-
+      },
+      {
+        path: '/contactus',
+        element: <ContactUs></ContactUs>
       }
-
     ],
   },
 ]);

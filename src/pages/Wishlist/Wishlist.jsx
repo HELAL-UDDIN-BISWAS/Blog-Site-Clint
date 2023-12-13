@@ -32,8 +32,7 @@ const Wishlist = () => {
                     <div className='text-center'>
                         <SkeletonTheme  baseColor="#c4c8cf" highlightColor="#fff">
                             <p>{
-                        <Skeleton count={3} />
-                                
+                        <Skeleton count={3} />             
                                 }
                             </p>
                         </SkeletonTheme>
