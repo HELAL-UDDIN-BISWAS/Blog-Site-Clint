@@ -32,9 +32,32 @@ const FeaturedBlogs = () => {
     return (
 
         <div>
-          {
-            filteredData.map(filter=><Feature key={filter._id} filter={filter}></Feature>)
-          }
+          <div className="overflow-x-auto">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+        <th></th>
+        <th>{filter?.category}</th>
+        <th>Job</th>
+        <th>Favorite Color</th>
+      </tr>
+    </thead>
+    <tbody>
+      {/* row 1 */}
+      {
+            filteredData?.map(datas=> <tr>
+                <th>1</th>
+                <td>Cy Ganderton</td>
+                <td>Quality Control Specialist</td>
+                <td>Blue</td>
+              </tr>)
+        }
+     
+     
+         </tbody>
+  </table>
+</div>
         </div>
 
     );
