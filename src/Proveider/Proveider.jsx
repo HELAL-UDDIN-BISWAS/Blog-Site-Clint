@@ -25,7 +25,7 @@ const Proveider = ({ children }) => {
         const unsubcribe = onAuthStateChanged(Auth, (currentUser) => {
             console.log('user', currentUser)
             setuser(currentUser)
-            setloading(true)
+            setloading(false)
         });
         return () => {
             unsubcribe();

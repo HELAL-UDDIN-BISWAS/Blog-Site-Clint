@@ -11,6 +11,7 @@ import Details from "../pages/Wishlist/Details";
 import Blogdetails from "../pages/All-Blogs/Blogdetails";
 import Errorpage from "../pages/Errorpage/Errorpage";
 import ContactUs from "../pages/ContactUS/ContactUs";
+import PrivateRouts from "../Components/PrivateRouts/PrivateRouts";
 
 const router = createBrowserRouter([
   {
@@ -32,11 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "addblog",
-        element: <AddBlog></AddBlog>,
+        element:<PrivateRouts><AddBlog/></PrivateRouts>,
       },
       {
         path: "allblogs",
-        element: <AllBlogs></AllBlogs>
+        element:<PrivateRouts><AllBlogs></AllBlogs></PrivateRouts> 
 
       },
       {
