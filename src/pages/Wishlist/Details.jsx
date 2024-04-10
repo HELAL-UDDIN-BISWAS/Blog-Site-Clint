@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+
 import { useLoaderData } from 'react-router-dom';
 import 'react-loading-skeleton/dist/skeleton.css'
-import Skeleton from 'react-loading-skeleton';
+
 
 const Details = () => {
   const wishlistDetails = useLoaderData();
   const { image, category, currentTime, short_description, title, _id, long_description
-  } = wishlistDetails
+  } = wishlistDetails || [];
+  console.log(wishlistDetails)
   return (
     <div className='my-5'>
       <div className=''>

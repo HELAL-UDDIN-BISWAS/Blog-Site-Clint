@@ -5,12 +5,24 @@ import { AuthContext } from '../../../Proveider/Proveider';
 const Navber = () => {
   const {user,logout}=useContext(AuthContext)
     const navber=<>
-        <li><Link to="/">Home</Link></li>
+
+    {
+      user?<>
+       <li><Link to="/">Home</Link></li>
         <li><Link to="/addblog">Add Blog</Link></li>
         <li><Link to="/allblogs">All Blogs</Link></li>
         <li><Link to="/featuredblogs">Featured Blogs</Link></li>
         <li><Link to="/wishlist">Wishlist</Link></li>
         <li><Link to="/contactus">ContactUs</Link></li>
+      </>:<>
+      <li><Link to="/">Home</Link></li>
+        <li><Link to="/addblog">Add Blog</Link></li>
+        <li><Link to="/allblogs">All Blogs</Link></li>
+        <li><Link to="/featuredblogs">Featured Blogs</Link></li>
+        <li><Link to="/contactus">ContactUs</Link></li>
+      </>
+    }
+       
     </>
     // const logout=()=>{
       
